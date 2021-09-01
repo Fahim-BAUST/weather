@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weather</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <style>
+        body {
+            background-image: linear-gradient(to right, rgb(0, 152, 179), rgb(0, 225, 255), rgb(0, 152, 179));
+        }
+
+        .pressure {
+            border-left: 2px solid rgb(129, 5, 5);
+            border-right: 2px solid rgb(129, 5, 5);
+        }
+
+        #show-weather {
+            border-radius: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 class="text-center my-4">Welcome To Weather App</h1>
+
+        <div class="input-group mb-3 w-50 mx-auto d-flex flex-column flex-xl-row flex-lg-row flex-md-row ">
+            <input id="city-name" type="text" class="t1 form-control fs-5 w-100 mb-2 rounded-pill border-danger"
+                placeholder="Enter City " aria-describedby="button-addon2">
+            <button onclick="searchCity()" class="t1 btn fw-bold rounded-pill fs-5 btn-danger  " type="button"
+                id="button-addon2 ">Click</button>
+        </div>
+
+    </header>
+
+    <main>
+        <section id="show-weather" class=" bg-warning w-50 mx-auto py-4 d-flex flex-column align-items-center ">
+
+            <h1 class="text-danger">Lalmonirhat, BD <i class="fas fa-map-marker-alt"></i></h1>
+            <div class="d-flex align-items-center">
+                <p class="fs-1 fw-bold">28°C </p>
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="">
+
+            </div>
+
+            <p class="fs-5"><span>32° /</span> <span>26°</span></p>
+            <p class="fs-5 fw-normal opacity-50">Cloudy</p>
+            <p class="fw-bold fs-5">Feels like 27°C. Moderate rain. Rain</p>
+
+            <div class="fs-6 fw-bold pressure p-4 mx-1 d-flex flex-column align-items-center rounded-pill">
+                <p>Pressure: 1007 | Humidity: 82 | 1h Rain: 2.73</p>
+                <p>Wind Degree : 154 | Wind Speed : 1.21</p>
+
+            </div>
+
+
+
+        </section>
+    </main>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/b3bd34f473.js" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
