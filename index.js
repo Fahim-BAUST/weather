@@ -4,7 +4,7 @@
 
 
 const searchCity = () => {
-    const city = document.getElementById('city-name').value;
+    const city = document.getElementById('city-name').value.trim();
 
     const apiKey = '17fa2269dbac031ee3edc52439f9f9a5';
 
