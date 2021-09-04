@@ -41,7 +41,7 @@ const loadWeather = data => {
 
             <p class="fs-5"><span>${data.list[0].main.temp_max}° /</span> <span>${data.list[0].main.temp_min}°</span></p>
             <p class="fs-5 fw-normal opacity-50">${data.list[0].weather[0].main}</p>
-            <p class="fw-bold fs-5">Feels like ${data.list[0].main.feels_like}. ${data.list[0].weather[0].description}. ${data.list[0].weather[0].main}</p>
+            <p class="fw-bold fs-5 text-center">Feels like ${data.list[0].main.feels_like}. ${data.list[0].weather[0].description}. ${data.list[0].weather[0].main}</p>
 
             <div class="fs-6 fw-bold pressure p-4 mx-1 d-flex flex-column  align-items-center rounded-pill">
                 <p>Pressure: ${data.list[0].main.pressure} | Humidity: ${data.list[0].main.humidity}</p>
