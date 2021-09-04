@@ -12,31 +12,44 @@ const searchCity = () => {
 
     fetch(url)
         .then(res => res.json())
-        .then(data => loadWeather(data.list[0]));
+        .then(data => loadWeather(data));
 
     toggleTpinner('block');
 }
 
 const loadWeather = data => {
     const section = document.getElementById('show-weather');
-    section.innerHTML = `
-     <h1 class="text-danger">${data.name}, ${data.sys.country} <i class="fas fa-map-marker-alt"></i></h1>
+    console.log(data);
+
+
+    if (data.count == 0) {
+        section.innerHTML = `
+        <h1 class="text-white bg-danger"
+        >No results found</h1>
+        `;
+    }
+    else {
+
+        section.innerHTML = `
+     <h1 class="text-danger">${data.list[0].name}, ${data.list[0].sys.country} <i class="fas fa-map-marker-alt"></i></h1>
             <div class="d-flex align-items-center">
-                <p class="fs-1 fw-bold">${data.main.temp}°C </p>
-                <img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="">
+                <p class="fs-1 fw-bold">${data.list[0].main.temp}°C </p>
+                <img src="http://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@2x.png" alt="">
 
             </div>
 
-            <p class="fs-5"><span>${data.main.temp_max}° /</span> <span>${data.main.temp_min}°</span></p>
-            <p class="fs-5 fw-normal opacity-50">${data.weather[0].main}</p>
-            <p class="fw-bold fs-5">Feels like ${data.main.feels_like}. ${data.weather[0].description}. ${data.weather[0].main}</p>
+            <p class="fs-5"><span>${data.list[0].main.temp_max}° /</span> <span>${data.list[0].main.temp_min}°</span></p>
+            <p class="fs-5 fw-normal opacity-50">${data.list[0].weather[0].main}</p>
+            <p class="fw-bold fs-5">Feels like ${data.list[0].main.feels_like}. ${data.list[0].weather[0].description}. ${data.list[0].weather[0].main}</p>
 
             <div class="fs-6 fw-bold pressure p-4 mx-1 d-flex flex-column align-items-center rounded-pill">
-                <p>Pressure: ${data.main.pressure} | Humidity: ${data.main.humidity}</p>
-                <p>Wind Degree : ${data.wind.deg} | Wind Speed : ${data.wind.speed}</p>
+                <p>Pressure: ${data.list[0].main.pressure} | Humidity: ${data.list[0].main.humidity}</p>
+                <p>Wind Degree : ${data.list[0].wind.deg} | Wind Speed : ${data.list[0].wind.speed}</p>
 
             </div>
      `
+    }
+
 
     toggleTpinner('none');
 
