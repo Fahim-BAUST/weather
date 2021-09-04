@@ -13,6 +13,8 @@ const searchCity = () => {
     fetch(url)
         .then(res => res.json())
         .then(data => loadWeather(data.list[0]));
+
+    toggleTpinner('block');
 }
 
 const loadWeather = data => {
@@ -35,5 +37,19 @@ const loadWeather = data => {
 
             </div>
      `
+
+    toggleTpinner('none');
+
+}
+
+// spinner toggle 
+const toggleTpinner = (data) => {
+    document.getElementById('spin').style.display = data;
+
+};
+
+
+const toggleStyle = (id, contentStyle) => {
+    document.getElementById(id).style.display = contentStyle;
 
 }

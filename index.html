@@ -19,7 +19,47 @@
         }
 
         #show-weather {
-            border-radius: 100px;
+            border-radius: 50px;
+        }
+
+        .lds-hourglass {
+            display: inline-block;
+            position: relative;
+            width: 80px;
+            height: 80px;
+        }
+
+        .lds-hourglass:after {
+            content: " ";
+            display: block;
+            border-radius: 50%;
+            width: 0;
+            height: 0;
+            margin: 8px;
+            box-sizing: border-box;
+            border: 32px solid #fff;
+            border-color: #fff transparent #fff transparent;
+            animation: lds-hourglass 1.2s infinite;
+        }
+
+        @keyframes lds-hourglass {
+            0% {
+                transform: rotate(0);
+                animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+            }
+
+            50% {
+                transform: rotate(900deg);
+                animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+            }
+
+            100% {
+                transform: rotate(1800deg);
+            }
+        }
+
+        #spin {
+            display: none;
         }
     </style>
 </head>
@@ -38,27 +78,11 @@
     </header>
 
     <main>
+        <!-- spinner  -->
+        <div class="d-flex justify-content-center">
+            <div id="spin" class="lds-hourglass "></div>
+        </div>
         <section id="show-weather" class=" bg-warning w-50 mx-auto py-4 d-flex flex-column align-items-center ">
-
-            <h1 class="text-danger">Lalmonirhat, BD <i class="fas fa-map-marker-alt"></i></h1>
-            <div class="d-flex align-items-center">
-                <p class="fs-1 fw-bold">28°C </p>
-                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="">
-
-            </div>
-
-            <p class="fs-5"><span>32° /</span> <span>26°</span></p>
-            <p class="fs-5 fw-normal opacity-50">Cloudy</p>
-            <p class="fw-bold fs-5">Feels like 27°C. Moderate rain. Rain</p>
-
-            <div class="fs-6 fw-bold pressure p-4 mx-1 d-flex flex-column align-items-center rounded-pill">
-                <p>Pressure: 1007 | Humidity: 82 | 1h Rain: 2.73</p>
-                <p>Wind Degree : 154 | Wind Speed : 1.21</p>
-
-            </div>
-
-
-
         </section>
     </main>
 
